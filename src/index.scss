@@ -1,0 +1,12 @@
+@use "./styles/fonts.scss";
+
+:root {
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    @include fonts.jost;
+}
+
+

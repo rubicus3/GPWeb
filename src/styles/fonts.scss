@@ -1,0 +1,30 @@
+@use "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@mixin jost {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+@mixin font-display {
+    @include jost;
+    font-size: 24px;
+
+}
+
+@mixin font-display-semibold {
+    @include jost;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+.font-display-semibold-white {
+    @include font-display-semibold;
+    color: #fff;
+}

@@ -1,0 +1,74 @@
+@use "../styles/variables.scss";
+
+.button-row-view {
+	flex-shrink: 0;
+	display: flex;
+	align-items: flex-start;
+	background: #246D2D;
+	border-radius: 5px;
+	border: none;
+	padding: 10px 15px;
+	gap: 5px;
+	text-align: left;
+
+    transition: all 0.5s ease;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(variables.$accent, 0.9);
+        transform: scale(1.03);
+    }
+}
+.column {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	background: #FFFFFF;
+	margin: 327px 348px;
+	gap: 19px;
+}
+.column2 {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+.contain {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    background: variables.$background;
+}
+.image {
+	border-radius: 5px;
+	width: 35px;
+	height: 35px;
+	object-fit: fill;
+}
+.row-view {
+	align-self: stretch;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 27px;
+}
+.scroll-view {
+	height: 1024px;
+	align-self: stretch;
+	background: #FFFFFF;
+}
+.text {
+	color: #8C322F;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+}
+.text2 {
+	color: #000000;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+}
+.text3 {
+	color: #FFFFFF;
+	font-size: 24px;
+}

@@ -1,0 +1,90 @@
+@use "../styles/variables.scss";
+@use "../styles/fonts.scss";
+
+.logo-container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    gap: 19px;
+}
+
+.app-bar {
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    background: variables.$primary;
+    padding: 15px 30px;
+}
+
+.app-bar-image {
+    border-radius: 5px;
+    width: 5em;
+    height: 5em;
+    object-fit: fill;
+}
+
+.app-bar-text {
+    color: #ffffff;    
+}
+
+.image2 {
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    object-fit: fill;
+}
+
+.app-bar-button-container{
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 10px 15px;
+    gap: 5px;
+
+
+    transition: all 0.5s ease;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(variables.$secondary, 0.3);
+    }
+}
+
+.scroll-view {
+    height: 1024px;
+    align-self: stretch;
+    background: #ffffff;
+}
+
+.music-image {
+	width: 75px;
+	height: 75px;
+	margin-right: 13px;
+	object-fit: fill;
+}
+
+.secondary-image {
+	border-radius: 5px;
+	width: 35px;
+	height: 35px;
+	object-fit: fill;
+}
+
+
+.app-bar-text {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+
+.app-bar-text-bold {
+    color: #fff;
+    font-style: bold;
+    font-size: 24px;
+    text-align: center;
+}
