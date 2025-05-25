@@ -16,7 +16,7 @@ export default function FilterCard() {
   const [filterOptionList,   setFilterOptionList] = useState(Array<filterOptions>)
  
   return (
-    <div className="contain">
+    <div className="filter-card-container">
       <div className="fliter-card">
         <div className="row-view">
           <img

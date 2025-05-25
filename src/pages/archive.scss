@@ -1,4 +1,18 @@
 .archive-container {
     display: flex;
+    height: 90vh;
     flex-direction: row;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 5vw;
+}
+
+.audio-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-grow: 1;
+    height: 100vh;
+    display: flex;
+    overflow-y: scroll;
 }
