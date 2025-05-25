@@ -36,13 +36,7 @@
 	margin-right: 20px;
 	text-align: left;
 }
-.filter-card-container {
-	display: flex;
-    height: 80vh;
-    justify-content: center;
-	flex-direction: column;
-	background: #FFFFFF;
-}
+
 .image {
 	border-radius: 9999px;
 	width: 24px;
@@ -56,14 +50,18 @@
 	object-fit: fill;
 }
 .input {
-	color: #A5A5A5;
+    color: #000000;
+    outline: none;
 	font-size: 16px;
-	flex: 1;
 	align-self: stretch;
 	background: none;
 	border: none;
 	padding-top: 4px;
 	padding-bottom: 4px;
+
+    &::placeholder {
+	    color: #A5A5A5;
+    }
 }
 .row-view {
 	align-self: stretch;
