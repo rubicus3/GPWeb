@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import TopAppBar from "../components/TopAppBar";
 import { FileDrop } from "react-file-drop";
 import "./restoration.scss";
+import { dblink } from "../helper/requests";
 
 export default function Restoration() {
   const [isUploaded, setIsUploaded] = useState(false);
@@ -25,10 +26,17 @@ export default function Restoration() {
     const formData = new FormData();
     formData.append("file", file);
 
-    fetch('/upload-file', {
+    fetch(dblink + '/upload_audio', {
         method: 'POST',
         body: formData,
-    }).then(() => {
+    }).then((response) => {
+        if(!response.ok){
+            response.text().then((text) => {
+                alert("Не удалось загрузить файл " + text)
+            })
+            return
+        }
+
         alert("Файл успешно загружен!")
 
     }).catch((err) => {
