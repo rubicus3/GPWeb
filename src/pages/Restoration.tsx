@@ -29,7 +29,20 @@ export default function Restoration() {
                 {"Загрузите песню с низким качеством для обработки с помощью искусственного интеллекта"}
               </span>
               <FileDrop className="file-drop" onDrop={(files, event) => onFileDrop(files, event)}>
-                <div className="column3">
+              <button className="uploaded-div"
+					onClick={()=>alert("Pressed!")}>
+					<img
+						src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/d8YN87RSkr/8i99y37j_expires_30_days.png"} 
+						className="image"
+					/>
+					<span className="uploaded-span-1" >
+						{"symphony-number-3.mp3"}
+					</span>
+					<span className="uploaded-span-2" >
+						{"6.08 МБ"}
+					</span>
+				</button>
+                {/* <div className="column3">
                   <img
                     src={
                       "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/d8YN87RSkr/abyuey13_expires_30_days.png"
@@ -41,7 +54,7 @@ export default function Restoration() {
                   <button ref={fileInputRef} onClick={onFileInputChange} className="button-row-view">
                     <span className="text5">{"Выберите файл"}</span>
                   </button>
-                </div>
+                </div> */}
               </FileDrop>
               <div className="column4">
                 <span className="text6">{"Поддерживаемые форматы:"}</span>
