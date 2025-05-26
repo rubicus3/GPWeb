@@ -53,6 +53,15 @@
     }
 }
 
+.app-bar-music-div {
+    transition: all 0.5s ease;
+    border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(variables.$secondary, 0.05);
+    }
+}
+
 .scroll-view {
     height: 1024px;
     align-self: stretch;
