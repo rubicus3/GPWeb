@@ -8,6 +8,8 @@
         height: 80px;
         object-fit: fill;
         align-self: center;
+
+        cursor: pointer;
     }
 
     div {
@@ -17,6 +19,7 @@
         display: flex;
         padding: 13px 15px;
         gap: 10px;
+        
 
         span.audio-file-author {
             color: #7E7E7E;
@@ -26,5 +29,10 @@
         	color: #000000;
 	        font-size: 24px;
         }
+    }
+
+    .filecardaudio {
+        align-self: center;
+        margin-right: 10vw  ;
     }
 }

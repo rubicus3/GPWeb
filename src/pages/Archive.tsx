@@ -1,92 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopAppBar from "../components/TopAppBar";
 import FilterCard from "../components/FilterCard";
 import "./archive.scss";
 import AudioFileCard from "../components/AudioFileCard";
+import { getAudioFileList } from "../helper/requests";
+
+type audioFileType = {
+
+    id: number,
+    author: string,
+    name: string,
+    url: string,
+
+
+}
+
 
 export default function Archive() {
-  const audioRecordings = [
-    {
-      id: 1,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 2,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 3,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 4,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 5,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 6,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 7,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 8,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-      id: 9,
-      author: "Шешуков Л.С.",
-      name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-      url: "",
-    },
-    {
-        id: 9,
-        author: "Шешуков Л.С.",
-        name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-        url: "",
-      },    {
-        id: 9,
-        author: "Шешуков Л.С.",
-        name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-        url: "",
-      },    {
-        id: 9,
-        author: "Шешуков Л.С.",
-        name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-        url: "",
-      },    {
-        id: 9,
-        author: "Шешуков Л.С.",
-        name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-        url: "",
-      },    {
-        id: 9,
-        author: "Шешуков Л.С.",
-        name: "Симфония № 7 (Ленинградская). Часть 1. Allegretto",
-        url: "",
-      },
-  ] ;
+  const [audioRecordings, setAudioRecordings] = useState([
+    
+  ] );
 
   // Sorting options
   const sortingOptions = [
@@ -106,6 +39,13 @@ export default function Archive() {
     { id: 5, label: "Пьеса-сигнал", checked: false },
   ];
   
+  useEffect(() => {
+    getAudioFileList().then((response) => {
+        setAudioRecordings(response);  
+    })
+  }, [])
+  
+
   return (
     <>
       <TopAppBar />
