@@ -39,7 +39,21 @@
         cursor: pointer;
         background-color: rgba(variables.$accent, 0.9);
         transform: scale(1.03);
-    }}
+    }
+
+    &:disabled {
+    
+        background: #6b7280;
+
+        &:hover {
+          cursor: auto;
+          background-color: #6b7280;
+          transform: scale(1);
+        }
+    }
+}
+
+    
 
 
 

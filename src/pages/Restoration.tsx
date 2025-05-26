@@ -6,16 +6,40 @@ import "./restoration.scss";
 export default function Restoration() {
   const [isUploaded, setIsUploaded] = useState(false);
 
+  const [file, setFile] = useState<File>();
+
   const fileInputRef = useRef(null);
 
-  const onFileInputChange = (event) => {
-    const { files } = event.target;
-    // do something with your files...
-  };
+  const onFileInputChange = () => {
+
+};
 
   const onFileDrop = (files: FileList, event: React.DragEvent<HTMLDivElement>) => {
-    console.log(files);
-  };
+    setFile(files[0]);
+    setIsUploaded(true);
+};
+
+  const uploadFile = () => {
+    if(file == null) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch('/upload-file', {
+        method: 'POST',
+        body: formData,
+    }).then(() => {
+        alert("Файл успешно загружен!")
+
+    }).catch((err) => {
+
+        alert("Не удалось загрузить файл" + err.message)
+
+    })
+    .finally(() =>{
+        window.location.reload();
+    });
+  }
 
   return (
     <div className="restoration-container">
@@ -29,38 +53,42 @@ export default function Restoration() {
                 {"Загрузите песню с низким качеством для обработки с помощью искусственного интеллекта"}
               </span>
               <FileDrop className="file-drop" onDrop={(files, event) => onFileDrop(files, event)}>
-              <button className="uploaded-div"
+                {isUploaded ? <button className="uploaded-div"
 					onClick={()=>alert("Pressed!")}>
 					<img
 						src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/d8YN87RSkr/8i99y37j_expires_30_days.png"} 
 						className="image"
 					/>
 					<span className="uploaded-span-1" >
-						{"symphony-number-3.mp3"}
+						{file?.name}
 					</span>
 					<span className="uploaded-span-2" >
-						{"6.08 МБ"}
+						{file?.size} Б
 					</span>
 				</button>
-                {/* <div className="column3">
-                  <img
-                    src={
-                      "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/d8YN87RSkr/abyuey13_expires_30_days.png"
-                    }
-                    className="image"
-                  />
-                  <span className="text3">{"Перетащите аудиофайл сюда"}</span>
-                  <span className="text4">{"или"}</span>
-                  <button ref={fileInputRef} onClick={onFileInputChange} className="button-row-view">
-                    <span className="text5">{"Выберите файл"}</span>
-                  </button>
-                </div> */}
+                :
+                <div className="column3">
+                <img
+                  src={
+                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/d8YN87RSkr/abyuey13_expires_30_days.png"
+                  }
+                  className="image"
+                />
+                <span className="text3">{"Перетащите аудиофайл сюда"}</span>
+                <span className="text4">{"или"}</span>
+                <button ref={fileInputRef} onClick={onFileInputChange} className="button-row-view">
+                  <span className="text5">{"Выберите файл"}</span>
+                </button>
+              </div>
+                }
+              
+               
               </FileDrop>
               <div className="column4">
                 <span className="text6">{"Поддерживаемые форматы:"}</span>
                 <span className="text7">{"MP3, WAV, OGG, FLAC (максимальный размер: 50 МБ)"}</span>
               </div>
-              <button className="button-row-view if-disabled" disabled={!isUploaded} onClick={() => alert("Pressed!")}>
+              <button className="button-row-view uploadFile" disabled={!isUploaded} onClick={uploadFile}>
                 <img
                   src={
                     "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/d8YN87RSkr/07us7fy5_expires_30_days.png"
